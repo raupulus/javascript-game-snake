@@ -4,6 +4,10 @@
  * @license https://www.gnu.org/licenses/gpl-3.0-standalone.html
  */
 
+/**
+ * La clase Score contiene y trata la información sobre la puntuación de la
+ * partida actual, además también la puntuación de otras partidas.
+ */
 class Score {
     /**
      * El constructor recibe los puntos almacenados en cookie o DB de
