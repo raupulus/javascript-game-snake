@@ -5,7 +5,7 @@
  */
 
 /**
- * Clase con loos datos del mapa
+ * Clase con los datos del mapa
  */
 class Mapa {
     /**
