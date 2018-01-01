@@ -24,7 +24,7 @@ class Score {
 
     /**
      * Establece la puntuación pasada como parámetro
-     * @param   {Integer}  puntuacion  Entrada de la puntuación a establecer
+     * @param  {Integer}  puntuacion  Entrada de la puntuación a establecer
      */
     set puntos(puntuacion) {
         this.puntuacion = puntuacion;
