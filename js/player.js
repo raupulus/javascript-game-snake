@@ -43,7 +43,7 @@ class Player {
      * @return  {Integer}  Valor de la puntuación total.
      */
     get puntuacion() {
-        return this.score.puntos();
+        return this.score.puntos;
     }
 
     /**
