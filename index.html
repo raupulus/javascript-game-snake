@@ -30,6 +30,15 @@
 
     <div id="cajajuego">
         <!--Aquí va el contenido del juego-->
+        <div id="cajajugador">
+        <script>
+            jugador = new Player('Manolo');
+            cajajuego.innerHTML = 'Datos del Jugador';
+            cajajuego.innerHTML += '<br />Nombre del jugador → ' + jugador.nombre;
+            cajajuego.innerHTML += '<br />Puntuación → ' + jugador.puntuacion;
+            cajajuego.innerHTML += '<br />Nivel → ' + jugador.nivel;
+        </script>
+        </div>
     </div>
 
     <footer id="cajafooter">
