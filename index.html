@@ -11,15 +11,21 @@
     <meta name="description" content="Juego de la serpiente Snake" />
     <meta name="keywords" content="juego, snake, serpiente" />
     <meta name="author" content="Raúl Caro Pastorino" />
-    <link rel="shortcut icon" href="./images/favicon.png" />
-    <link rel="stylesheet" href="./css/styles.css" />
-    <script src="js/scripts.js"></script>
+    <link rel="shortcut icon" href="images/favicon.png" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/cookies.js"></script>
     <script src="js/funciones.js"></script>
+    <script src="js/juego.js"></script>
     <script src="js/manzana.js"></script>
     <script src="js/mapa.js"></script>
     <script src="js/player.js"></script>
     <script src="js/score.js"></script>
     <script src="js/serpiente.js"></script>
+    <script>
+        window.onload = function() {
+            info_user();
+        }
+    </script>
 </head>
 
 <body>
@@ -30,15 +36,7 @@
 
     <div id="cajajuego">
         <!--Aquí va el contenido del juego-->
-        <div id="cajajugador">
-        <script>
-            jugador = new Player('Manolo');
-            cajajuego.innerHTML = 'Datos del Jugador';
-            cajajuego.innerHTML += '<br />Nombre del jugador → ' + jugador.nombre;
-            cajajuego.innerHTML += '<br />Puntuación → ' + jugador.puntuacion;
-            cajajuego.innerHTML += '<br />Nivel → ' + jugador.nivel;
-        </script>
-        </div>
+        <div id="cajajugador"></div>
     </div>
 
     <footer id="cajafooter">
