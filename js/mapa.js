@@ -16,5 +16,8 @@ class Mapa {
     constructor(alto = 300, ancho = 300) {
         this.alto  = alto;
         this.ancho = ancho;
+
+        // Una casilla/recuadro pueden ser 5-10 píxeles, dividir entre este
+        // número entre los píxeles?¿
     }
 }
