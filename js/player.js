@@ -7,35 +7,35 @@
 class Player {
     constructor(name) {
         this.name = name;
-        //this.score = new Score(0);
-        //this.level = 0
+        this.score = new Score(0);
+        this.level = 0
     }
 
     get nombre() {
         return this.name
     }
 
-    set nombre() {
+    set nombre(name) {
         this.name = name;
     }
 
     get puntuacion() {
-
+        return this.score.puntos();
     }
 
-    set puntuacion() {
-
+    set puntuacion(puntos) {
+        this.score.puntos(puntos);
     }
 
     get nivel() {
-
+        return this.level;
     }
 
-    aumentarPuntuacion() {
-
+    aumentarPuntuacion(puntos) {
+        this.score.sumarPuntos(puntos);
     }
 
     subirNivel() {
-
+        this.level += 1;
     }
 }
