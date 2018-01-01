@@ -32,7 +32,7 @@ class Player {
 
     /**
      * Modifica el nombre del jugador
-     * @param  {[type]}  name  Nuevo nombre
+     * @param  {String}  name  Nuevo nombre
      */
     set nombre(name) {
         this.name = name;
