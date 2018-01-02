@@ -20,4 +20,19 @@ class Mapa {
         // Una casilla/recuadro pueden ser 5-10 píxeles, dividir entre este
         // número entre los píxeles?¿
     }
+
+    /**
+     * Devuelve la altura del mapa
+     */
+    get alto() {
+        return this.alto;
+    }
+
+    /**
+     * Devuelve el ancho del mapa
+     */
+    get ancho() {
+        return this.ancho;
+    }
+
 }
