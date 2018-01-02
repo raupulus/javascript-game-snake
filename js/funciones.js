@@ -30,6 +30,9 @@ function info_user() {
     caja.replaceChild(nuevoNodo, jugador);
 }
 
+/**
+ * Inicializa el mapa con tamaño y proporciones necesarias
+ */
 function generarMapa() {
     var caja = document.getElementById('cajamapa');
 
