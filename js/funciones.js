@@ -29,3 +29,11 @@ function info_user() {
     // Reemplaza el actual nodo "jugador" por el nuevo generado
     caja.replaceChild(nuevoNodo, jugador);
 }
+
+function generarMapa() {
+    var caja = document.getElementById('cajamapa');
+
+    // Establece dimensiones según el tamaño del mapa
+    caja.style.width = mapa.ancho + 'px';
+    caja.style.height = mapa.alto + 'px';
+}
