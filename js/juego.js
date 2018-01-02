@@ -10,17 +10,22 @@
  * Cada vez que se llame a la función se limpiará su contenido y recreará.
  */
 function info_user() {
-    var nuevoNodo = document.createElement('p');
+    var caja    = document.getElementById('cajajugador');
+    var jugador = document.getElementById('jugador');
 
+    // Crear nuevo párrafo con id="jugador"
+    var nuevoNodo = document.createElement('p');
+    nuevoNodo.setAttribute('id', 'jugador')
+
+    // Crear nuevo nodo de texto y agregarlo al párrafo anterior
     var texto = document.createTextNode(
                 'Datos del Jugador' +
                 '<br />Nombre del jugador → ' + jugador.nombre +
                 '<br />Puntuación → ' + jugador.puntuacion +
                 '<br />Nivel → ' + jugador.nivel
                 );
-
     nuevoNodo.appendChild(texto);
 
-    document.getElementById('jugador').appendChild(nuevoNodo);
-    //document.replaceChild(nuevoNodo, document.getElementById('jugador'));
+    // Reemplaza el actual nodo "jugador" por el nuevo generado
+    caja.replaceChild(nuevoNodo, jugador);
 }
