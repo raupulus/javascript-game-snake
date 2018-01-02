@@ -37,3 +37,15 @@ function generarMapa() {
     caja.style.width = mapa.ancho + 'px';
     caja.style.height = mapa.alto + 'px';
 }
+
+function generarAleatorio(minimo = 0, maximo = 10) {
+    var x = 0;
+
+    while (true) {
+        x = parseInt((Math.random()+0.01) * maximo);
+
+        if ((x >= minimo) && (x <= maximo)) {
+            return x;
+        }
+    }
+}
