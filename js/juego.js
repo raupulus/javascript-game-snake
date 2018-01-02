@@ -7,11 +7,20 @@
 /**
  * Pinta toda la información del usuario en su caja correspondiente
  * Dicha caja será un <div> con el id="cajajugador"
+ * Cada vez que se llame a la función se limpiará su contenido y recreará.
  */
 function info_user() {
-    jugador = new Player('Manolo');
-    cajajuego.innerHTML += 'Datos del Jugador';
-    cajajuego.innerHTML += '<br />Nombre del jugador → ' + jugador.nombre;
-    cajajuego.innerHTML += '<br />Puntuación → ' + jugador.puntuacion;
-    cajajuego.innerHTML += '<br />Nivel → ' + jugador.nivel;
+    var nuevoNodo = document.createElement('p');
+
+    var texto = document.createTextNode(
+                'Datos del Jugador' +
+                '<br />Nombre del jugador → ' + jugador.nombre +
+                '<br />Puntuación → ' + jugador.puntuacion +
+                '<br />Nivel → ' + jugador.nivel
+                );
+
+    nuevoNodo.appendChild(texto);
+
+    document.getElementById('jugador').appendChild(nuevoNodo);
+    //document.replaceChild(nuevoNodo, document.getElementById('jugador'));
 }

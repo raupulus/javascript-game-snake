@@ -23,7 +23,8 @@
     <script src="js/serpiente.js"></script>
     <script>
         window.onload = function() {
-            info_user();
+            jugador = new Player('Manolo');  // Crear usuario
+            info_user();  // Pinta información del usuario
         }
     </script>
 </head>
@@ -36,7 +37,7 @@
 
     <div id="cajajuego">
         <!--Aquí va el contenido del juego-->
-        <div id="cajajugador"></div>
+        <div id="cajajugador"><p id="jugador"></p></div>
     </div>
 
     <footer id="cajafooter">
