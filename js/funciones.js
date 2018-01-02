@@ -38,6 +38,12 @@ function generarMapa() {
     caja.style.height = mapa.alto + 'px';
 }
 
+/**
+ * Genera un número aleatoriamente entre los valores de mínimo y máximo.
+ * @param  {Integer} [minimo=0]  Valor mínimo.
+ * @param  {Integer} [maximo=10] Valor máximo.
+ * @return {Integer}             Devuelve un entero entre el mínimo y máximo.
+ */
 function generarAleatorio(minimo = 0, maximo = 10) {
     var x = 0;
 
