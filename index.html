@@ -24,7 +24,9 @@
     <script>
         window.onload = function() {
             jugador = new Player('Manolo');  // Crear usuario
-            info_user();  // Pinta información del usuario
+            mapa    = new Mapa(300, 300);    // Crea un mapa
+            info_user();    // Pinta información del usuario
+            generarMapa();  // Dibuja el mapa
         }
     </script>
 </head>
@@ -38,6 +40,7 @@
     <div id="cajajuego">
         <!--Aquí va el contenido del juego-->
         <div id="cajajugador"><p id="jugador"></p></div>
+        <div id="cajamapa"></div>
     </div>
 
     <footer id="cajafooter">
