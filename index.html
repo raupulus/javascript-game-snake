@@ -22,10 +22,11 @@
     <script src="js/score.js"></script>
     <script src="js/serpiente.js"></script>
     <script>
-        var jugador1 = new Player('Manolo');  // Crear usuario
-        var mapa    = new Mapa(300, 300);    // Crea un mapa
-
         window.onload = function() {
+            jugador1  = new Player('Manolo');  // Crear usuario
+            mapa      = new Mapa(300, 300);    // Crea un mapa
+            serpiente = new Serpiente();
+            manzanas  = [];
 
             info_user();    // Pinta información del usuario
             generarMapa();  // Dibuja el mapa
