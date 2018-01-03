@@ -19,10 +19,10 @@ function info_user() {
 
     // Crear nuevo nodo de texto y agregarlo al párrafo anterior
     var texto = document.createTextNode(
-                'Datos del Jugador' +
-                '<br />Nombre del jugador → ' + jugador.nombre +
-                '<br />Puntuación → ' + jugador.puntuacion +
-                '<br />Nivel → ' + jugador.nivel
+                'Datos del Jugador: ' +
+                'Nombre del jugador → ' + jugador1.nombre +
+                ' | Puntuación → ' + jugador1.puntuacion +
+                ' | Nivel → ' + jugador1.nivel
                 );
     nuevoNodo.appendChild(texto);
 
