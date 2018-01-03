@@ -51,7 +51,7 @@ class Player {
      * @param  {Integer}  puntos  Valor al que establecer la puntuación
      */
     set puntuacion(puntos) {
-        this.score.puntos(puntos);
+        this.score.puntos = puntos;
     }
 
     /**
