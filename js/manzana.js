@@ -19,6 +19,7 @@ class Manzana {
         this.posX  = posicionX;
         this.posY  = posicionY;
         this.punto = puntos;
+        this.coulor = 'red';
         this.image = 'image/manzana.png';
     }
 
@@ -44,5 +45,13 @@ class Manzana {
      */
     get puntos() {
         return this.punto;
+    }
+
+    /**
+     * Devuelve el color de la manzana
+     * @return {String} Color de la manzana
+     */
+    get color() {
+        return this.coulor;
     }
 }
