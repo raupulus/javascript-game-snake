@@ -47,9 +47,10 @@ function rellenarManzanas() {
  */
 function iniciar() {
     // Colocar Manzanas
+    rellenarManzanas();
 
     // Inicializa bucle
-    gameLoop = setInterval(bucleJuego, 1000);  // Intervalo actualizar juego
+    gameLoop = setInterval(bucleJuego, 300);  // Intervalo actualizar juego
 }
 
 /**
@@ -57,7 +58,9 @@ function iniciar() {
  */
 function bucleJuego() {
     // Mueve la Serpiente
-    mover();
+    if (! mover()) {
+        gameOver();
+    }
 
     // Comprueba si come una manzana y la borra del array manzanas, si es la última sube nivel. Además suma puntuación al jugador
 
@@ -71,20 +74,57 @@ function bucleJuego() {
  * Mueve la serpiente en el sentido que esta tenga (Top, Right, Button, Left)
  */
 function mover() {
+    ctx.beginPath();
     switch (serpiente.direccion) {
         case 'T':
-
+            if ((posY - serpiente.alto) < 0) {
+                return false;
+            }
+            oldPosY = posY;
+            posY -= serpiente.ancho;
+            ctx.fillRect(posX, posY, serpiente.ancho, serpiente.alto);
             break;
         case 'R':
-
+            if ((posX + serpiente.ancho) > mapa.ancho) {
+                return false;
+            }
+            oldPosX = posX;
+            posX += serpiente.ancho;
+            ctx.fillRect(posX, posY, serpiente.ancho, serpiente.alto);
             break;
         case 'B':
-
+            if ((posY + serpiente.ancho) > mapa.alto) {
+                return false;
+            }
+            oldPosY = posY;
+            posY += serpiente.alto;
+            ctx.fillRect(posX, posY, serpiente.ancho, serpiente.alto);
             break;
         case 'L':
-
+            if ((posX - serpiente.ancho) < 0) {
+                return false;
+            }
+            oldPosX = posX;
+            posX -= serpiente.ancho;
+            ctx.fillRect(posX, posY, serpiente.ancho, serpiente.alto);
             break;
     }
+    ctx.closePath();
+    ctx.fill();
+
     // ctx.moveTo(40, 40);  // Mover a la última posición
     // ctx.putImageData(oldBack, 0, 0);  // Borrar el último punto para simular el desplazamiento
+
+    // Borrando marca anterior
+
+
+    return true;
+}
+
+/**
+ * Función que termina el juego cuando se ha perdido
+ */
+function gameOver() {
+    clearInterval(gameLoop);
+    alert('Has perdido');
 }
