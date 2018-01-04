@@ -10,6 +10,16 @@
  * Cuando no haya manzanas se sube un nivel al jugador.
  */
 
+// Variables globales
+posX    = 0;  // Almacena la posición actual desde el eje X
+posY    = 0;  // Almacena la posición actual desde el eje Y
+oldPosX = 0;  // Almacena la posición anterior desde el eje X
+oldPosY = 0;  // Almacena la posición anterior desde el eje Y
+
+
+
+
+
 // Actualiza la información de usuario cada segundo
 // Comprobar si es realmente necesario ya que cada acción que necesite
 // refrescar debería llamar a la función "info_user()"
@@ -30,15 +40,17 @@ function rellenarManzanas() {
  * Inicializa el juego y coloca cada componente en su lugar
  */
 function iniciar() {
-    // Colocar Serpiente
-    var caja = document.getElementById('cajamapa');
-    var nuevoNodo = document.createElement('div');
-    nuevoNodo.setAttribute('id', 'snake');
-    nuevoNodo.style.width = "40px";
-    nuevoNodo.style.height = "10px";
-    nuevoNodo.style.backgroundColor = "#ff0000";
-    nuevoNodo.style.position = "absolute";
-    caja.appendChild(nuevoNodo);
+    // Colocar Serpiente como nuevo nodo (esto es temporal)
+    // var caja = document.getElementById('cajamapa');
+    // var nuevoNodo = document.createElement('div');
+    // nuevoNodo.setAttribute('id', 'snake');
+    // nuevoNodo.style.width = "20px";
+    // nuevoNodo.style.height = "10px";
+    // nuevoNodo.style.backgroundColor = "#ff0000";
+    // nuevoNodo.style.position = "absolute";
+    // caja.appendChild(nuevoNodo);
+
+
 
 
     // Colocar Manzanas
