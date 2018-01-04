@@ -13,11 +13,23 @@ class Mapa {
      * @param   {Integer}  alto   Altura del mapa, por defecto será 300
      * @param   {Integer}  ancho  Ancho del mapa, por defecto será 300
      */
-    constructor(alto = 300, ancho = 300) {
-        this.alto  = alto;
-        this.ancho = ancho;
-
-        // Una casilla/recuadro pueden ser 5-10 píxeles, dividir entre este
-        // número entre los píxeles?¿
+    constructor(altura = 300, anchura = 300) {
+        this.altura  = altura;
+        this.anchura = anchura;
     }
+
+    /**
+     * Devuelve la altura del mapa
+     */
+    get alto() {
+        return this.altura;
+    }
+
+    /**
+     * Devuelve el ancho del mapa
+     */
+    get ancho() {
+        return this.anchura;
+    }
+
 }

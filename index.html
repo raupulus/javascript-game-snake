@@ -23,8 +23,15 @@
     <script src="js/serpiente.js"></script>
     <script>
         window.onload = function() {
-            jugador = new Player('Manolo');  // Crear usuario
-            info_user();  // Pinta información del usuario
+            jugador1  = new Player('Manolo');  // Crear usuario
+            mapa      = new Mapa(300, 300);    // Crear mapa
+            serpiente = new Serpiente();       // Crear serpiente
+            manzanas  = [];                    // Crear array de manzanas
+
+            variables();
+            info_user();    // Pinta información del usuario
+            generarMapa();  // Dibuja el mapa
+            iniciar();      // Inicia el juego
         }
     </script>
 </head>
@@ -38,6 +45,9 @@
     <div id="cajajuego">
         <!--Aquí va el contenido del juego-->
         <div id="cajajugador"><p id="jugador"></p></div>
+        <div id="cajamapa">
+            <canvas id="cajacanvas">Su navegador no soporta canvas</canvas>
+        </div>
     </div>
 
     <footer id="cajafooter">
