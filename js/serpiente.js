@@ -15,4 +15,12 @@ class Serpiente {
         this.cabeza = 0;  // Posición de la cabeza.
         this.cola   = 1;  // Posición de la cola.
     }
+
+    crecer() {
+        this.cola += 1;
+    }
+
+    get longitud() {
+        return this.cola + 1;
+    }
 }
