@@ -90,8 +90,27 @@ function bucleJuego() {
     }
 
     // Comprueba si come una manzana y la borra del array manzanas, si es la última sube nivel. Además suma puntuación al jugador
-    //jugador1.subirNivel();
-    //jugador1.aumentarPuntuacion(10);
+    for (let x in manzanas) {
+        if ((manzanas[x].posX >= posX) &&
+            (manzanas[x].posX <= posX + serpiente.alto) ||
+            (manzanas[x].posY >= posY) &&
+            (manzanas[x].posY <= posY + serpiente.ancho))
+        {
+            alert('Puntazo!');
+            jugador1.aumentarPuntuacion(manzanas[x].puntos);
+
+            // Eliminar manzana comida
+            manzanas.splice(x, 1);
+            alert(manzanas.length);
+        }
+    }
+
+    // Si no quedan manzanas, da 100 puntos, sube nivel y vuelve a llenar mapa.
+    if (manzanas.length == 0) {
+        jugador1.aumentarPuntuacion(100);  // 100 puntos extras por subir nivel.
+        jugador1.subirNivel();             // Aumenta 1 nivel.
+        rellenarManzanas();                // Coloca manzanas de nuevo en mapa.
+    }
 
     // Comprueba que no se choca
 
@@ -102,7 +121,7 @@ function bucleJuego() {
 /**
  * Filtra la tecla que se ha pulsado y asigna el sentido a la serpiente
  * en el caso que proceda
- * @param  {[type]} e Recibe el evento que llama a la función
+ * @param  {Event} e Recibe el evento que llama a la función
  */
 function teclaPulsada(e) {
     switch (e.code) {
