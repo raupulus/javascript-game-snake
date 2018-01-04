@@ -22,14 +22,26 @@ class Manzana {
         this.image = 'image/manzana.png';
     }
 
+    /**
+     * Devuelve la posición X respecto al mapa.
+     * @return {Integer} Posición en el mapa.
+     */
     get posionX() {
         return this.posX;
     }
 
+    /**
+     * Devuelve la posición y respecto al mapa.
+     * @return {Integer} Posición en el mapa.
+     */
     get posicionY() {
         return this.posY;
     }
 
+    /**
+     * Devuelve los puntos que vale la manzana.
+     * @return {Integer} Puntos que vale la manzana.
+     */
     get puntos() {
         return this.punto;
     }
