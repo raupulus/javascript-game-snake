@@ -16,10 +16,12 @@ class Player {
         this.name = name;
         this.level = 0;
 
-        // Comprobar si existe cookie con valor de puntuación:
-        // this.score = getCookie(score);
-        // En el caso que exista setear, en caso contraro será:
-        this.score = new Score(0);
+        if (getCookie('score') > 0) {
+            this.score = new Score(getCookie('score'));
+        } else {
+            this.score = new Score(0);
+            setCookie('score', this.score.puntos);
+        }
     }
 
     /**
@@ -52,6 +54,7 @@ class Player {
      */
     set puntuacion(puntos) {
         this.score.puntos = puntos;
+        setCookie('score', this.score.puntos);
     }
 
     /**
@@ -68,6 +71,7 @@ class Player {
      */
     aumentarPuntuacion(puntos) {
         this.score.sumarPuntos(puntos);
+        setCookie('score', this.score.puntos);
     }
 
     /**
