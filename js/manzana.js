@@ -29,7 +29,7 @@ class Manzana {
      * Devuelve la posición X respecto al mapa.
      * @return {Integer} Posición en el mapa.
      */
-    get posionX() {
+    get posicionX() {
         return this.posX;
     }
 

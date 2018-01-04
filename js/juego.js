@@ -26,7 +26,7 @@ function variables() {
     canvas.height = mapa.alto;        // Altura del canvas
     ctx = canvas.getContext("2d");    // Contexto 2d para Canvas
     ctx.fillStyle = serpiente.color;  // Color en el que se pintará
-    ctx.rect(0, 0, serpiente.ancho, serpiente.alto);  // Tipo de pincel y tamaño
+    ctx.fillRect(0, 0, serpiente.ancho, serpiente.alto);  // Tipo de pincel y tamaño
     ctx.fill();                       //
 }
 
@@ -50,10 +50,23 @@ window.addEventListener('keydown', teclaPulsada, true);
  * dentro del mapa de forma aleatoria.
  */
 function rellenarManzanas() {
-    // Bucle que genera instancias de clase "Manzana" como niveles y las añade
-    // en array "manzanas[]"
+    var mctx = ctx;
 
-    // Comprueba si en las coordenadas aleatoria no existe manzana ni la serpiente y si se cumple posiciona la manzana, en caso contrario se repite el proceso.
+    // Genera instancias de "Manzana" como niveles y las añade en "manzanas[]"
+    for (let i = 0; i <= jugador1.nivel; i++) {
+        manzanas[i] = new Manzana(generarAleatorio(0, mapa.alto),
+                                  generarAleatorio(0, mapa.ancho),
+                                  generarAleatorio(5, 15)
+                                 );
+        // TODO → Comprueba si en las coordenadas aleatoria no existe manzana ni la serpiente y si se cumple posiciona la manzana, en caso contrario se repite el proceso.
+
+        mctx.beginPath();
+        mctx.fillStyle = manzanas[i].color;  // Color con el que dibujar
+        mctx.fillRect(manzanas[i].posX, manzanas[i].posY, manzanas[i].ancho, manzanas[i].alto);  // Pincel y tamaño
+        mctx.fillStyle = serpiente.color;  // Devuelve el color de la serpiente
+        mctx.closePath();
+        mctx.fill();
+    }
 }
 
 /**
@@ -77,6 +90,8 @@ function bucleJuego() {
     }
 
     // Comprueba si come una manzana y la borra del array manzanas, si es la última sube nivel. Además suma puntuación al jugador
+    //jugador1.subirNivel();
+    //jugador1.aumentarPuntuacion(10);
 
     // Comprueba que no se choca
 
