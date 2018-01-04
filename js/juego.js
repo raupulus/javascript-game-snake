@@ -16,9 +16,22 @@ posY    = 0;  // Almacena la posición actual desde el eje Y
 oldPosX = 0;  // Almacena la posición anterior desde el eje X
 oldPosY = 0;  // Almacena la posición anterior desde el eje Y
 
+/**
+ * Inicializa variables que solo pueden ser iniciadas después de haber
+ * cargado la página completamente.
+ */
+function variables() {
+    canvas = document.getElementById('cajacanvas');
+    ctx = canvas.getContext("2d");  // Contexto 2d para Canvas
+    ctx.fillStyle = serpiente.color;          // Color en el que se pintará
+    ctx.rect(0, 0, serpiente.ancho, serpiente.alto);  // Tipo de pincel y tamaño
+    ctx.fill();                     //
+}
 
 
-
+// Eventos
+//gameLoop = setInterval(???, 16);  // Intervalo con el que actualizar el juego
+//window.addEventListener('keydown', funciontecla???, true);  // Escucha teclas pulsadas
 
 // Actualiza la información de usuario cada segundo
 // Comprobar si es realmente necesario ya que cada acción que necesite
