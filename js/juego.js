@@ -33,9 +33,16 @@ function variables() {
 /**************************************************
                      EVENTOS
 **************************************************/
+// Desactivar eventos que interfieren
+window.addEventListener('keydown', function(e) {e.preventDefault();}, true);
+window.addEventListener('keypress', function(e) {e.preventDefault();}, true);
+window.addEventListener('keyup', function(e) {e.preventDefault();}, true);
+
+// Deshabilito botón derecho del ratón
+document.oncontextmenu = function() {return false;};
+
 // Escucha teclas pulsadas
 window.addEventListener('keydown', teclaPulsada, true);
-
 
 
 /**
