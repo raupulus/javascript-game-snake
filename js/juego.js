@@ -28,8 +28,17 @@ function variables() {
     ctx.fill();                     //
 }
 
-// Eventos
-//window.addEventListener('keydown', funciontecla???, true);  // Escucha teclas pulsadas
+/**************************************************
+                     EVENTOS
+**************************************************/
+// Escucha teclas pulsadas
+window.addEventListener('keydown',
+                        function() {
+                            serpiente.direccion = 'B';
+                        },
+                        true);
+
+
 
 /**
  * Genera tantas manzanas como el número de nivel actual y las distribuye
@@ -108,6 +117,8 @@ function mover() {
             posX -= serpiente.ancho;
             ctx.fillRect(posX, posY, serpiente.ancho, serpiente.alto);
             break;
+        default:
+            return false;
     }
     ctx.closePath();
     ctx.fill();
