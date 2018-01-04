@@ -68,3 +68,8 @@ function iniciar() {
 
     // Colocar Manzanas
 }
+
+function mover() {
+    // ctx.moveTo(40, 40);  // Mover a la última posición
+    // ctx.putImageData(oldBack, 0, 0);  // Borrar el último punto para simular el desplazamiento
+}
