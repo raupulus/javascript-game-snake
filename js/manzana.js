@@ -21,6 +21,8 @@ class Manzana {
         this.punto = puntos;
         this.coulor = 'red';
         this.image = 'image/manzana.png';
+        this.altura = 10;  // Altura en píxeles
+        this.anchura = 10;  // Anchura en píxeles
     }
 
     /**
@@ -53,5 +55,19 @@ class Manzana {
      */
     get color() {
         return this.coulor;
+    }
+
+    /**
+     * Devuelve la altura de la manzana.
+     */
+    get alto() {
+        return this.altura;
+    }
+
+    /**
+     * Devuelve la anchura de la manzana.
+     */
+    get ancho() {
+        return this.anchura;
     }
 }
