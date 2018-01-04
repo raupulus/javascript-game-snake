@@ -14,7 +14,7 @@ class Serpiente {
     constructor() {
         this.cabeza    = 0;        // Posición de la cabeza.
         this.cola      = 1;        // Posición de la cola.
-        this.altura    = 5;       // La altura en píxeles de la serpiente
+        this.altura    = 10;       // La altura en píxeles de la serpiente
         this.anchura   = 10;       // El ancho en píxeles de la serpiente
         this.colour    = 'green';  // Color de la serpiente
         this.direction = 'R';       // Dirección en la que mira la serpiente
