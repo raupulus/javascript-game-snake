@@ -28,15 +28,8 @@ function variables() {
     ctx.fill();                     //
 }
 
-
 // Eventos
-//gameLoop = setInterval(???, 16);  // Intervalo con el que actualizar el juego
 //window.addEventListener('keydown', funciontecla???, true);  // Escucha teclas pulsadas
-
-// Actualiza la información de usuario cada segundo
-// Comprobar si es realmente necesario ya que cada acción que necesite
-// refrescar debería llamar a la función "info_user()"
-//setInterval(info_user, 1000);
 
 /**
  * Genera tantas manzanas como el número de nivel actual y las distribuye
@@ -53,22 +46,29 @@ function rellenarManzanas() {
  * Inicializa el juego y coloca cada componente en su lugar
  */
 function iniciar() {
-    // Colocar Serpiente como nuevo nodo (esto es temporal)
-    // var caja = document.getElementById('cajamapa');
-    // var nuevoNodo = document.createElement('div');
-    // nuevoNodo.setAttribute('id', 'snake');
-    // nuevoNodo.style.width = "20px";
-    // nuevoNodo.style.height = "10px";
-    // nuevoNodo.style.backgroundColor = "#ff0000";
-    // nuevoNodo.style.position = "absolute";
-    // caja.appendChild(nuevoNodo);
-
-
-
-
     // Colocar Manzanas
+
+    // Inicializa bucle
+    gameLoop = setInterval(bucleJuego, 1000);  // Intervalo actualizar juego
 }
 
+/**
+ * Bucle que imita el movimiento
+ */
+function bucleJuego() {
+    // Mueve la Serpiente
+
+    // Comprueba si come una manzana y la borra del array manzanas, si es la última sube nivel. Además suma puntuación al jugador
+
+    // Comprueba que no se choca
+
+    // Pinta datos del jugador
+    info_user();
+}
+
+/**
+ * Mueve la serpiente en el sentido que esta tenga
+ */
 function mover() {
     // ctx.moveTo(40, 40);  // Mover a la última posición
     // ctx.putImageData(oldBack, 0, 0);  // Borrar el último punto para simular el desplazamiento
