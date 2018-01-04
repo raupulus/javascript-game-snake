@@ -57,6 +57,7 @@ function iniciar() {
  */
 function bucleJuego() {
     // Mueve la Serpiente
+    mover();
 
     // Comprueba si come una manzana y la borra del array manzanas, si es la última sube nivel. Además suma puntuación al jugador
 
@@ -67,9 +68,23 @@ function bucleJuego() {
 }
 
 /**
- * Mueve la serpiente en el sentido que esta tenga
+ * Mueve la serpiente en el sentido que esta tenga (Top, Right, Button, Left)
  */
 function mover() {
+    switch (serpiente.direccion) {
+        case 'T':
+
+            break;
+        case 'R':
+
+            break;
+        case 'B':
+
+            break;
+        case 'L':
+
+            break;
+    }
     // ctx.moveTo(40, 40);  // Mover a la última posición
     // ctx.putImageData(oldBack, 0, 0);  // Borrar el último punto para simular el desplazamiento
 }

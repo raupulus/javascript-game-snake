@@ -17,7 +17,7 @@ class Serpiente {
         this.altura    = 10;       // La altura en píxeles de la serpiente
         this.anchura   = 10;       // El ancho en píxeles de la serpiente
         this.colour    = 'green';  // Color de la serpiente
-        this.direction = 'R'       // Dirección en la que mira la serpiente
+        this.direction = 'R';       // Dirección en la que mira la serpiente
     }
 
     crecer() {
