@@ -9,9 +9,28 @@
  */
 class Manzana {
     /**
-     * Constructor que genera una nueva instancia de manzana
+     * Constructor que genera una nueva instancia de manzana con sus atributos
+     * en el juego
+     * @param  {Integer} posicionX Posición X donde se sitúa la manzana
+     * @param  {Integer} posicionY Posición Y donde se sitúa la manzana
+     * @param  {Integer} puntos    Puntos que valdrá
      */
-    constructor() {
-        // this.posicion = Random según dimensiones del mapa
+    constructor(posicionX, posicionY, puntos) {
+        this.posX  = posicionX;
+        this.posY  = posicionY;
+        this.punto = puntos;
+        this.image = 'image/manzana.png';
+    }
+
+    get posionX() {
+        return this.posX;
+    }
+
+    get posicionY() {
+        return this.posY;
+    }
+
+    get puntos() {
+        return this.punto;
     }
 }
