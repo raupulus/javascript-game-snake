@@ -17,7 +17,7 @@ class Player {
         this.level = 0;
 
         if (getCookie('score') > 0) {
-            this.score = new Score(getCookie('score'));
+            this.score = new Score(parseInt(getCookie('score')));
         } else {
             this.score = new Score(0);
             setCookie('score', this.score.puntos);
@@ -79,5 +79,13 @@ class Player {
      */
     subirNivel() {
         this.level += 1;
+    }
+
+    /**
+     * Limpia la puntuación y la cookie asociada a esta
+     */
+    resetearPuntuacion() {
+        this.score.puntos = 0;
+        setCookie('score', 0);
     }
 }
