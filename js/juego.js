@@ -32,11 +32,7 @@ function variables() {
                      EVENTOS
 **************************************************/
 // Escucha teclas pulsadas
-window.addEventListener('keydown',
-                        function() {
-                            serpiente.direccion = 'B';
-                        },
-                        true);
+window.addEventListener('keydown', teclaPulsada, true);
 
 
 
@@ -80,17 +76,41 @@ function bucleJuego() {
 }
 
 /**
- * Mueve la serpiente en el sentido que esta tenga (Top, Right, Button, Left)
+ * Filtra la tecla que se ha pulsado y asigna el sentido a la serpiente
+ * en el caso que proceda
+ * @param  {[type]} e Recibe el evento que llama a la función
+ */
+function teclaPulsada(e) {
+    switch (e.code) {
+        case 'ArrowUp':
+            serpiente.direccion = 'U';
+            break;
+        case 'ArrowRight':
+            serpiente.direccion = 'R';
+            break;
+        case 'ArrowDown':
+            serpiente.direccion = 'D';
+            break;
+        case 'ArrowLeft':
+            serpiente.direccion = 'L'
+            break;
+        default:
+
+    }
+}
+
+/**
+ * Mueve la serpiente en el sentido que esta tenga (Up, Right, Down, Left)
  */
 function mover() {
     ctx.beginPath();
     switch (serpiente.direccion) {
-        case 'T':
+        case 'U':
             if ((posY - serpiente.alto) < 0) {
                 return false;
             }
             oldPosY = posY;
-            posY -= serpiente.ancho;
+            posY -= serpiente.alto;
             ctx.fillRect(posX, posY, serpiente.ancho, serpiente.alto);
             break;
         case 'R':
@@ -101,7 +121,7 @@ function mover() {
             posX += serpiente.ancho;
             ctx.fillRect(posX, posY, serpiente.ancho, serpiente.alto);
             break;
-        case 'B':
+        case 'D':
             if ((posY + serpiente.ancho) > mapa.alto) {
                 return false;
             }
