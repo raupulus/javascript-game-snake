@@ -22,10 +22,12 @@ oldPosY = 0;  // Almacena la posición anterior desde el eje Y
  */
 function variables() {
     canvas = document.getElementById('cajacanvas');
-    ctx = canvas.getContext("2d");  // Contexto 2d para Canvas
-    ctx.fillStyle = serpiente.color;          // Color en el que se pintará
+    canvas.width = mapa.ancho;        // Ancho del canvas
+    canvas.height = mapa.alto;        // Altura del canvas
+    ctx = canvas.getContext("2d");    // Contexto 2d para Canvas
+    ctx.fillStyle = serpiente.color;  // Color en el que se pintará
     ctx.rect(0, 0, serpiente.ancho, serpiente.alto);  // Tipo de pincel y tamaño
-    ctx.fill();                     //
+    ctx.fill();                       //
 }
 
 /**************************************************
@@ -94,8 +96,6 @@ function teclaPulsada(e) {
         case 'ArrowLeft':
             serpiente.direccion = 'L'
             break;
-        default:
-
     }
 }
 
