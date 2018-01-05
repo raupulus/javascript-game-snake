@@ -229,7 +229,6 @@ function mover() {
 }
 
 function reiniciarJuego() {
-    // TOFIX → Limpiar mapa, reiniciar serpiente y manzana
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     jugador1.resetearPuntuacion();
     gameOver('Reiniciando Juego');
