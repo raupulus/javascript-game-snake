@@ -99,6 +99,9 @@ function bucleJuego() {
             alert('¡Puntazo!');
             jugador1.aumentarPuntuacion(manzanas[x].puntos);
 
+            // Aumenta el array del cuerpo
+            troncoSer.unshift([0,0]);
+
             // Eliminar manzana comida
             manzanas.splice(x, 1);
             alert(manzanas.length);
@@ -144,6 +147,9 @@ function teclaPulsada(e) {
  * Mueve la serpiente en el sentido que esta tenga (Up, Right, Down, Left)
  */
 function mover() {
+    var limpiarX = serpiente.ancho;
+    var limpiarY = serpiente.alto;
+
     ctx.beginPath();
     switch (serpiente.direccion) {
         case 'U':
@@ -184,17 +190,21 @@ function mover() {
     ctx.closePath();
     ctx.fill();
 
-    // ctx.moveTo(40, 40);  // Mover a la última posición
-    // ctx.putImageData(oldBack, 0, 0);  // Borrar el último punto para simular el desplazamiento
+    // Añade la nueva posición al final del array
+    troncoSer.push([oldPosX, oldPosY]);
 
-    // Borrando marca anterior
+    // Borrar el último punto para simular el desplazamiento
+    //ctx.clearRect(troncoSer[0][0], troncoSer[0][1], limpiarX, limpiarY);
 
+    // Elimina la primera posición del array
+    troncoSer.shift();
 
     return true;
 }
 
 function reiniciarJuego() {
     // TOFIX → Limpiar mapa, reiniciar serpiente y manzana
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     jugador1.resetearPuntuacion();
     gameOver();
     iniciar();
