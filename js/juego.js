@@ -150,16 +150,24 @@ function bucleJuego() {
 function teclaPulsada(e) {
     switch (e.code) {
         case 'ArrowUp':
-            serpiente.direccion = 'U';
+            if (serpiente.direccion != 'D') {
+                serpiente.direccion = 'U';
+            }
             break;
         case 'ArrowRight':
-            serpiente.direccion = 'R';
+            if (serpiente.direccion != 'L') {
+                serpiente.direccion = 'R';
+            }
             break;
         case 'ArrowDown':
-            serpiente.direccion = 'D';
+            if (serpiente.direccion != 'U') {
+                serpiente.direccion = 'D';
+            }
             break;
         case 'ArrowLeft':
-            serpiente.direccion = 'L'
+            if (serpiente.direccion != 'R') {
+                serpiente.direccion = 'L'
+            }
             break;
     }
 }
