@@ -179,8 +179,6 @@ function mover() {
     oldPosX = posX;
     oldPosY = posY;
 
-    // TODO → Implementar que no pueda invertir sentido, es decir, podrá cambiar solo a cualquiera de los otros 3 sentidos pero no hacia atrás sobre si mismo.
-
     ctx.beginPath();
     switch (serpiente.direccion) {
         case 'U':
