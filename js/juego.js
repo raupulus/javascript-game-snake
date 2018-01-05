@@ -132,7 +132,6 @@ function bucleJuego() {
 
     // Comprueba que no se choca
     for (let x of troncoSer) {
-        console.log(x[0]);
         if ((x[0] == posX) && (x[1] == posY)) {
             gameOver('¡Chocazo!\nTe has tropezado contigo');
         }
@@ -144,7 +143,8 @@ function bucleJuego() {
 
 /**
  * Filtra la tecla que se ha pulsado y asigna el sentido a la serpiente
- * en el caso que proceda
+ * en el caso que proceda. Comprobará que cambiamos de dirección y
+ * no de sentido para no andar sobre si misma.
  * @param  {Event} e Recibe el evento que llama a la función
  */
 function teclaPulsada(e) {
