@@ -1,6 +1,9 @@
 # Snake_Javascript
 Game of Classic Snake writer in Javascript
+
 El Clásico Juego de la serpiente que come manzanas mientras que a su vez la serpiente crece de tamaño, esta vez escrito en Javascript.
+
+La realización de este juego es más para fines educativos que para lograr tener el juego en si 100% funcional y libre de fallos. Con esto quiero decir que lo realizo para practicar y a su vez lo dejo para que otros puedan reutilizarlo para el fin que prefieran (mientras se respete autoría y licencia libre GPLv3).
 
 ![Previsualización de Juego Snake](preview.png)
 
