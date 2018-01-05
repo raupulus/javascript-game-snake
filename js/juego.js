@@ -147,8 +147,8 @@ function teclaPulsada(e) {
  * Mueve la serpiente en el sentido que esta tenga (Up, Right, Down, Left)
  */
 function mover() {
-    var limpiarX = serpiente.ancho;
-    var limpiarY = serpiente.alto;
+    oldPosX = posX;
+    oldPosY = posY;
 
     ctx.beginPath();
     switch (serpiente.direccion) {
@@ -158,7 +158,6 @@ function mover() {
             }
             oldPosY = posY;
             posY -= serpiente.alto;
-            ctx.fillRect(posX, posY, serpiente.ancho, serpiente.alto);
             break;
         case 'R':
             if ((posX + serpiente.ancho) > mapa.ancho) {
@@ -166,7 +165,6 @@ function mover() {
             }
             oldPosX = posX;
             posX += serpiente.ancho;
-            ctx.fillRect(posX, posY, serpiente.ancho, serpiente.alto);
             break;
         case 'D':
             if ((posY + serpiente.ancho) > mapa.alto) {
@@ -174,7 +172,6 @@ function mover() {
             }
             oldPosY = posY;
             posY += serpiente.alto;
-            ctx.fillRect(posX, posY, serpiente.ancho, serpiente.alto);
             break;
         case 'L':
             if ((posX - serpiente.ancho) < 0) {
@@ -182,11 +179,11 @@ function mover() {
             }
             oldPosX = posX;
             posX -= serpiente.ancho;
-            ctx.fillRect(posX, posY, serpiente.ancho, serpiente.alto);
             break;
         default:
             return false;
     }
+    ctx.fillRect(posX, posY, serpiente.ancho, serpiente.alto);
     ctx.closePath();
     ctx.fill();
 
@@ -195,6 +192,7 @@ function mover() {
 
     // Borrar el último punto para simular el desplazamiento
     //ctx.clearRect(troncoSer[0][0], troncoSer[0][1], limpiarX, limpiarY);
+    ctx.clearRect(oldPosX, oldPosY, serpiente.ancho, serpiente.alto);
 
     // Elimina la primera posición del array
     troncoSer.shift();
