@@ -6,7 +6,7 @@ El Clásico Juego de la serpiente que come manzanas mientras que a su vez la ser
 
 
 ## Tecnologías
-Todo el desarrollo del juego está escriot en Javascript Puro, sin usar ningún tipo de librería o framework. Aunque exista la librería jquery no es utilizada más allá de para lo que la use bootstrap.
+Todo el desarrollo del juego está escrito en Javascript Puro, sin usar ningún tipo de librería o framework. Aunque exista la librería jquery no es utilizada más allá de para lo que la use bootstrap.
 
 Cada clase se divide en un archivo distinto conteniendo las siguientes:
 - Manzana
@@ -35,8 +35,13 @@ Licencia libre con reconocimiento de autoría y proyectos derivados bajo las mis
 
 ## Autor
 Nombre  → Raúl Caro Pastorino
+
 WEB     → http://www.fryntiz.es
+
 Nick    → @fryntiz
+
 Twitter → https://twitter.com/fryntiz
+
 Email   → tecnico@fryntiz.es
+
 GitHub  → https://github.com/fryntiz/
