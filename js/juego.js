@@ -10,7 +10,9 @@
  * Cuando no haya manzanas se sube un nivel al jugador.
  */
 
-// Variables globales
+ /**************************************************
+                VARIABLES GLOBALES
+ **************************************************/
 posX    = 0;  // Almacena la posición actual desde el eje X
 posY    = 0;  // Almacena la posición actual desde el eje Y
 oldPosX = 0;  // Almacena la posición anterior desde el eje X
@@ -21,13 +23,21 @@ oldPosY = 0;  // Almacena la posición anterior desde el eje Y
  * cargado la página completamente.
  */
 function variables() {
+    jugador1  = new Player('Manolo');  // Crear usuario
+    mapa      = new Mapa(300, 300);    // Crear mapa
+    serpiente = new Serpiente();       // Crear serpiente
+    troncoSer = [];                    // Tronco de la serpiente
+    manzanas  = [];                    // Crear array de manzanas
+
+    velocidad = 200;  // Velocidad en milisegundos a la que refresca el juego
+
     canvas = document.getElementById('cajacanvas');
     canvas.width = mapa.ancho;        // Ancho del canvas
     canvas.height = mapa.alto;        // Altura del canvas
     ctx = canvas.getContext("2d");    // Contexto 2d para Canvas
     ctx.fillStyle = serpiente.color;  // Color en el que se pintará
-    ctx.fillRect(0, 0, serpiente.ancho, serpiente.alto);  // Tipo de pincel y tamaño
-    ctx.fill();                       //
+    ctx.fillRect(0, 0, serpiente.ancho, serpiente.alto);  // Pincel y tamaño
+    ctx.fill();
 }
 
 /**************************************************
@@ -73,11 +83,15 @@ function rellenarManzanas() {
  * Inicializa el juego y coloca cada componente en su lugar
  */
 function iniciar() {
+    variables();
+    info_user();    // Pinta información del usuario
+    generarMapa();  // Dibuja el mapa
+
     // Colocar Manzanas
     rellenarManzanas();
 
     // Inicializa bucle
-    gameLoop = setInterval(bucleJuego, 300);  // Intervalo actualizar juego
+    gameLoop = setInterval(bucleJuego, velocidad);  // Intervalo actualizar juego
 }
 
 /**
@@ -96,23 +110,24 @@ function bucleJuego() {
             (manzanas[x].posY >= posY) &&
             (manzanas[x].posY <= posY + serpiente.ancho))
         {
-            alert('¡Puntazo!');
+
             jugador1.aumentarPuntuacion(manzanas[x].puntos);
 
             // Aumenta el array del cuerpo
-            troncoSer.unshift([0,0]);
+            troncoSer.unshift([0,0])
 
             // Eliminar manzana comida
             manzanas.splice(x, 1);
-            alert(manzanas.length);
         }
     }
 
     // Si no quedan manzanas, da 100 puntos, sube nivel y vuelve a llenar mapa.
     if (manzanas.length == 0) {
+        alert('¡Puntazo! → Subes un nivel\n Obtienes 100 puntos extras');
         jugador1.aumentarPuntuacion(100);  // 100 puntos extras por subir nivel.
         jugador1.subirNivel();             // Aumenta 1 nivel.
         rellenarManzanas();                // Coloca manzanas de nuevo en mapa.
+        velocidad -= 10;                   // Aumenta la velocidad en 10 puntos
     }
 
     // Comprueba que no se choca
@@ -191,8 +206,7 @@ function mover() {
     troncoSer.push([oldPosX, oldPosY]);
 
     // Borrar el último punto para simular el desplazamiento
-    //ctx.clearRect(troncoSer[0][0], troncoSer[0][1], limpiarX, limpiarY);
-    ctx.clearRect(oldPosX, oldPosY, serpiente.ancho, serpiente.alto);
+    ctx.clearRect(troncoSer[0][0], troncoSer[0][1], serpiente.ancho, serpiente.alto);
 
     // Elimina la primera posición del array
     troncoSer.shift();
@@ -205,6 +219,7 @@ function reiniciarJuego() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     jugador1.resetearPuntuacion();
     gameOver();
+    variables();
     iniciar();
 }
 

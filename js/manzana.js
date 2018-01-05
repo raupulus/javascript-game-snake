@@ -21,8 +21,8 @@ class Manzana {
         this.punto = puntos;
         this.coulor = 'red';
         this.image = 'image/manzana.png';
-        this.altura = 10;  // Altura en píxeles
-        this.anchura = 10;  // Anchura en píxeles
+        this.altura = 8;  // Altura en píxeles
+        this.anchura = 8;  // Anchura en píxeles
     }
 
     /**
