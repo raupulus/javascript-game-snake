@@ -13,16 +13,16 @@
  /**************************************************
                 VARIABLES GLOBALES
  **************************************************/
-posX    = 0;  // Almacena la posición actual desde el eje X
-posY    = 0;  // Almacena la posición actual desde el eje Y
-oldPosX = 0;  // Almacena la posición anterior desde el eje X
-oldPosY = 0;  // Almacena la posición anterior desde el eje Y
-
 /**
  * Inicializa variables que solo pueden ser iniciadas después de haber
  * cargado la página completamente.
  */
 function variables() {
+    posX    = 0;  // Almacena la posición actual desde el eje X
+    posY    = 0;  // Almacena la posición actual desde el eje Y
+    oldPosX = 0;  // Almacena la posición anterior desde el eje X
+    oldPosY = 0;  // Almacena la posición anterior desde el eje Y
+
     jugador1  = new Player('Manolo');  // Crear usuario
     mapa      = new Mapa(300, 300);    // Crear mapa
     serpiente = new Serpiente();       // Crear serpiente
@@ -83,7 +83,7 @@ function rellenarManzanas() {
  * Inicializa el juego y coloca cada componente en su lugar
  */
 function iniciar() {
-    variables();
+    variables();    // Establece las variables globales del juego
     info_user();    // Pinta información del usuario
     generarMapa();  // Dibuja el mapa
 
@@ -233,7 +233,7 @@ function reiniciarJuego() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     jugador1.resetearPuntuacion();
     gameOver('Reiniciando Juego');
-    variables();
+
     iniciar();
 }
 
