@@ -19,14 +19,17 @@ class Manzana {
         this.posX  = posicionX;
         this.posY  = posicionY;
         this.punto = puntos;
+        this.coulor = 'red';
         this.image = 'image/manzana.png';
+        this.altura = 8;  // Altura en píxeles
+        this.anchura = 8;  // Anchura en píxeles
     }
 
     /**
      * Devuelve la posición X respecto al mapa.
      * @return {Integer} Posición en el mapa.
      */
-    get posionX() {
+    get posicionX() {
         return this.posX;
     }
 
@@ -44,5 +47,27 @@ class Manzana {
      */
     get puntos() {
         return this.punto;
+    }
+
+    /**
+     * Devuelve el color de la manzana
+     * @return {String} Color de la manzana
+     */
+    get color() {
+        return this.coulor;
+    }
+
+    /**
+     * Devuelve la altura de la manzana.
+     */
+    get alto() {
+        return this.altura;
+    }
+
+    /**
+     * Devuelve la anchura de la manzana.
+     */
+    get ancho() {
+        return this.anchura;
     }
 }
