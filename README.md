@@ -23,3 +23,9 @@ El objetivo principal del juego es ir comiendo manzanas para acumular puntos (ca
 - Aumenta la velocidad de juego levemente
 - Aumenta en 100 puntos de recompensa por subir de nivel
 - Cada nivel tiene 1 manzana más que el anterior
+
+
+## Licencia
+Proyecto bajo [Licencia GPLv3](href="https://www.gnu.org/licenses/gpl-3.0-standalone.html) Adjunta en el [repositorio](https://github.com/fryntiz/Snake_Javascript/blob/master/LICENSE) también.
+
+Licencia libre con reconocimiento de autoría y proyectos derivados bajo las mismas condiciones y licencia.
