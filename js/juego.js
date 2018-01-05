@@ -13,16 +13,16 @@
  /**************************************************
                 VARIABLES GLOBALES
  **************************************************/
-posX    = 0;  // Almacena la posición actual desde el eje X
-posY    = 0;  // Almacena la posición actual desde el eje Y
-oldPosX = 0;  // Almacena la posición anterior desde el eje X
-oldPosY = 0;  // Almacena la posición anterior desde el eje Y
-
 /**
  * Inicializa variables que solo pueden ser iniciadas después de haber
  * cargado la página completamente.
  */
 function variables() {
+    posX    = 0;  // Almacena la posición actual desde el eje X
+    posY    = 0;  // Almacena la posición actual desde el eje Y
+    oldPosX = 0;  // Almacena la posición anterior desde el eje X
+    oldPosY = 0;  // Almacena la posición anterior desde el eje Y
+
     jugador1  = new Player('Manolo');  // Crear usuario
     mapa      = new Mapa(300, 300);    // Crear mapa
     serpiente = new Serpiente();       // Crear serpiente
@@ -83,7 +83,7 @@ function rellenarManzanas() {
  * Inicializa el juego y coloca cada componente en su lugar
  */
 function iniciar() {
-    variables();
+    variables();    // Establece las variables globales del juego
     info_user();    // Pinta información del usuario
     generarMapa();  // Dibuja el mapa
 
@@ -100,7 +100,7 @@ function iniciar() {
 function bucleJuego() {
     // Mueve la Serpiente
     if (! mover()) {
-        gameOver();
+        gameOver('Te has chocado, juego terminado');
     }
 
     // Comprueba si come una manzana y la borra del array manzanas, si es la última sube nivel. Además suma puntuación al jugador
@@ -131,6 +131,11 @@ function bucleJuego() {
     }
 
     // Comprueba que no se choca
+    for (let x of troncoSer) {
+        if ((x[0] == posX) && (x[1] == posY)) {
+            gameOver('¡Chocazo!\nTe has tropezado contigo');
+        }
+    }
 
     // Pinta datos del jugador
     info_user();
@@ -138,22 +143,31 @@ function bucleJuego() {
 
 /**
  * Filtra la tecla que se ha pulsado y asigna el sentido a la serpiente
- * en el caso que proceda
+ * en el caso que proceda. Comprobará que cambiamos de dirección y
+ * no de sentido para no andar sobre si misma.
  * @param  {Event} e Recibe el evento que llama a la función
  */
 function teclaPulsada(e) {
     switch (e.code) {
         case 'ArrowUp':
-            serpiente.direccion = 'U';
+            if (serpiente.direccion != 'D') {
+                serpiente.direccion = 'U';
+            }
             break;
         case 'ArrowRight':
-            serpiente.direccion = 'R';
+            if (serpiente.direccion != 'L') {
+                serpiente.direccion = 'R';
+            }
             break;
         case 'ArrowDown':
-            serpiente.direccion = 'D';
+            if (serpiente.direccion != 'U') {
+                serpiente.direccion = 'D';
+            }
             break;
         case 'ArrowLeft':
-            serpiente.direccion = 'L'
+            if (serpiente.direccion != 'R') {
+                serpiente.direccion = 'L'
+            }
             break;
     }
 }
@@ -215,18 +229,18 @@ function mover() {
 }
 
 function reiniciarJuego() {
-    // TOFIX → Limpiar mapa, reiniciar serpiente y manzana
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     jugador1.resetearPuntuacion();
-    gameOver();
-    variables();
+    gameOver('Reiniciando Juego');
+
     iniciar();
 }
 
 /**
- * Función que termina el juego cuando se ha perdido
+ * Función que termina el juego cuando se ha perdido.
+ * @param  {String} mensaje Recibe el mensaje con el motivo del fin del juego.
  */
-function gameOver() {
+function gameOver(mensaje) {
     clearInterval(gameLoop);
-    alert('Has perdido');
+    alert(mensaje);
 }
