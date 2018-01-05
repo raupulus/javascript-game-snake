@@ -16,6 +16,7 @@ function info_user() {
     // Crear nuevo párrafo con id="jugador"
     var nuevoNodo = document.createElement('p');
     nuevoNodo.setAttribute('id', 'jugador');
+    nuevoNodo.setAttribute('class', 'text-center');
 
     // Crear nuevo nodo de texto y agregarlo al párrafo anterior
     var texto = document.createTextNode(
