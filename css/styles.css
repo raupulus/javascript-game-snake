@@ -4,6 +4,13 @@
  * @copyright Copyright © 2017 Raúl Caro Pastorino
  * @license https://www.gnu.org/licenses/gpl-3.0-standalone.html
  */
+#titulo {
+    text-align: center;
+}
+
+#subtitulo {
+    text-align: center;
+}
 
 #cajajugador {
     border: 2px solid black;
@@ -11,9 +18,9 @@
 
 #cajamapa {
     margin: 5px auto;
-    border: 5px solid black;
     background-image: url('../images/fondomapa.jpg');
-    border-radius: 10px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 3px black;
 }
 
 #cajacanvas {
