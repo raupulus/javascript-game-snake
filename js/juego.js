@@ -92,11 +92,11 @@ function bucleJuego() {
     // Comprueba si come una manzana y la borra del array manzanas, si es la última sube nivel. Además suma puntuación al jugador
     for (let x in manzanas) {
         if ((manzanas[x].posX >= posX) &&
-            (manzanas[x].posX <= posX + serpiente.alto) ||
+            (manzanas[x].posX <= posX + serpiente.alto) &&
             (manzanas[x].posY >= posY) &&
             (manzanas[x].posY <= posY + serpiente.ancho))
         {
-            alert('Puntazo!');
+            alert('¡Puntazo!');
             jugador1.aumentarPuntuacion(manzanas[x].puntos);
 
             // Eliminar manzana comida
@@ -191,6 +191,13 @@ function mover() {
 
 
     return true;
+}
+
+function reiniciarJuego() {
+    // TOFIX → Limpiar mapa, reiniciar serpiente y manzana
+    jugador1.resetearPuntuacion();
+    gameOver();
+    iniciar();
 }
 
 /**
