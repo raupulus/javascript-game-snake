@@ -100,7 +100,7 @@ function iniciar() {
 function bucleJuego() {
     // Mueve la Serpiente
     if (! mover()) {
-        gameOver();
+        gameOver('Te has chocado, juego terminado');
     }
 
     // Comprueba si come una manzana y la borra del array manzanas, si es la última sube nivel. Además suma puntuación al jugador
@@ -131,6 +131,12 @@ function bucleJuego() {
     }
 
     // Comprueba que no se choca
+    for (let x of troncoSer) {
+        console.log(x[0]);
+        if ((x[0] == posX) && (x[1] == posY)) {
+            gameOver('¡Chocazo!\nTe has tropezado contigo');
+        }
+    }
 
     // Pinta datos del jugador
     info_user();
@@ -164,6 +170,8 @@ function teclaPulsada(e) {
 function mover() {
     oldPosX = posX;
     oldPosY = posY;
+
+    // TODO → Implementar que no pueda invertir sentido, es decir, podrá cambiar solo a cualquiera de los otros 3 sentidos pero no hacia atrás sobre si mismo.
 
     ctx.beginPath();
     switch (serpiente.direccion) {
@@ -218,15 +226,16 @@ function reiniciarJuego() {
     // TOFIX → Limpiar mapa, reiniciar serpiente y manzana
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     jugador1.resetearPuntuacion();
-    gameOver();
+    gameOver('Reiniciando Juego');
     variables();
     iniciar();
 }
 
 /**
- * Función que termina el juego cuando se ha perdido
+ * Función que termina el juego cuando se ha perdido.
+ * @param  {String} mensaje Recibe el mensaje con el motivo del fin del juego.
  */
-function gameOver() {
+function gameOver(mensaje) {
     clearInterval(gameLoop);
-    alert('Has perdido');
+    alert(mensaje);
 }
