@@ -31,7 +31,7 @@ El objetivo principal del juego es ir comiendo manzanas para acumular puntos (ca
 
 
 ## Licencia
-Proyecto bajo [Licencia GPLv3](href="https://www.gnu.org/licenses/gpl-3.0-standalone.html) Adjunta en el [repositorio](https://github.com/fryntiz/Snake_Javascript/blob/master/LICENSE) también.
+Proyecto bajo [Licencia GPLv3](href="https://www.gnu.org/licenses/gpl-3.0-standalone.html) Adjunta en el [repositorio](https://github.com/raupulus/javascript-game-snake/blob/master/LICENSE) también.
 
 Licencia libre con reconocimiento de autoría y proyectos derivados bajo las mismas condiciones y licencia.
 
@@ -39,12 +39,12 @@ Licencia libre con reconocimiento de autoría y proyectos derivados bajo las mis
 ## Autor
 Nombre  → Raúl Caro Pastorino
 
-WEB     → http://www.fryntiz.es
+WEB     → https://raupulus.dev
 
-Nick    → @fryntiz
+Nick    → @raupulus
 
-Twitter → https://twitter.com/fryntiz
+Twitter → https://twitter.com/raupulus
 
-Email   → tecnico@fryntiz.es
+Email   → public@raupulus.dev
 
-GitHub  → https://github.com/fryntiz/
+GitHub  → https://github.com/raupulus
